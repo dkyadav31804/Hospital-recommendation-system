@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find Hospitals — Vitality</title>
+<meta name="description" content="Browse and compare hospitals matching your selected treatment, location, budget and distance." />
+
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("vitality-theme");
+    if (t === "light" || t === "dark") {
+      document.documentElement.setAttribute("data-theme", t);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body data-page="search">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+
+    <a class="nav-logo" href="index.html" aria-label="Vitality home">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" fill="#12B8A3"/>
+        <path d="M8 17h4l2-6 4 12 2-6h4"
+          stroke="#fff"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+      </svg>
+      Vitality
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html" class="active">Find Hospitals</a></li>
+      <li><a href="index.html#ai-assistant">AI Assistant</a></li>
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="index.html#about">About</a></li>
+
+      <li class="nav-cta-mobile">
+        <a href="search.html" class="btn btn-primary btn-block">
+          Find Hospital
+        </a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+
+      <a href="search.html" class="btn btn-primary">
+        Find Hospital
+      </a>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-pressed="false"
+        aria-label="Switch to light theme">
+
+        <svg
+          class="theme-icon theme-icon-sun"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          aria-hidden="true">
+
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+
+        <svg
+          class="theme-icon theme-icon-moon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          aria-hidden="true">
+
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+
+      </button>
+
+      <button
+        class="nav-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="nav-links">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </div>
+  </nav>
+</header>
+
+
+<main id="main" class="container">
+
+  <div class="results-header" style="margin-top:28px;">
+    <h1>Matching Hospitals</h1>
+    <p>
+      Showing hospitals matching your selected criteria.
+      Adjust filters at any time to refine the list.
+    </p>
+  </div>
+
+
+  <!-- MAIN RESULTS AREA -->
+
+  <div class="results-shell">
+
+    <!-- LEFT: FILTERS -->
+
+    <aside
+      class="filters-sidebar"
+      id="filters-sidebar"
+      aria-label="Filters">
+
+      <h2>Filters</h2>
+
+      <form id="filters-form">
+
+        <div class="filter-group">
+
+          <h3>Condition &amp; Specialty</h3>
+
+          <div class="field">
+            <label for="filter-disease">
+              Disease / Condition
+            </label>
+
+            <input
+              type="text"
+              id="filter-disease"
+              placeholder="e.g. Heart disease" />
+          </div>
+
+          <div class="field">
+            <label for="filter-specialization">
+              Medical Specialty
+            </label>
+
+            <select id="filter-specialization"></select>
+          </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <h3>Location</h3>
+
+          <div class="field">
+
+            <label for="filter-city">
+              City
+            </label>
+
+            <input
+              type="text"
+              id="filter-city"
+              list="filter-city-options"
+              placeholder="e.g. Lucknow, Mumbai, Chennai..."
+              autocomplete="off" />
+
+            <datalist id="filter-city-options"></datalist>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="filter-max-distance">
+              Maximum Distance
+            </label>
+
+            <div class="range-row">
+
+              <input
+                type="range"
+                id="filter-max-distance"
+                min="5"
+                max="150"
+                step="5"
+                value="150" />
+
+              <span
+                class="range-value"
+                id="filter-max-distance-value">
+                150 km
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <h3>Budget (₹)</h3>
+
+          <div class="field">
+
+            <label for="filter-min-budget">
+              Minimum Budget
+            </label>
+
+            <input
+              type="number"
+              id="filter-min-budget"
+              min="0"
+              step="1000"
+              placeholder="0"
+              aria-describedby="budget-error" />
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="filter-max-budget">
+              Maximum Budget
+            </label>
+
+            <input
+              type="number"
+              id="filter-max-budget"
+              min="0"
+              step="1000"
+              placeholder="No limit"
+              aria-describedby="budget-error" />
+
+          </div>
+
+          <p
+            class="field-error"
+            id="budget-error"
+            role="alert"
+            hidden>
+          </p>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <h3>Outcome Data</h3>
+
+          <div class="toggle-row">
+
+            <label
+              class="switch"
+              for="filter-outcome">
+
+              <input
+                type="checkbox"
+                id="filter-outcome" />
+
+              <span class="track"></span>
+
+            </label>
+
+            <label
+              for="filter-outcome"
+              class="field-hint toggle-label-text">
+
+              Only show hospitals with reported outcome data
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <h3>Hospital Type</h3>
+
+          <div class="field">
+
+            <select id="filter-hospital-type">
+
+              <option value="">
+                Any type
+              </option>
+
+              <option value="General">
+                General
+              </option>
+
+              <option value="Multi-specialty">
+                Multi-specialty
+              </option>
+
+              <option value="Specialty">
+                Specialty
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <h3>Facilities</h3>
+
+          <div class="checkbox-list">
+
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                name="facility"
+                value="24/7 Emergency" />
+              24/7 Emergency
+            </label>
+
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                name="facility"
+                value="ICU" />
+              ICU
+            </label>
+
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                name="facility"
+                value="Blood Bank" />
+              Blood Bank
+            </label>
+
+            <label class="checkbox-row">
+              <input
+                type="checkbox"
+                name="facility"
+                value="Wheelchair Access" />
+              Wheelchair Access
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+          <h3>Rating</h3>
+
+          <div class="field">
+
+            <select id="filter-rating">
+
+              <option value="">
+                Any rating
+              </option>
+
+              <option value="4.5">
+                4.5+
+              </option>
+
+              <option value="4">
+                4.0+
+              </option>
+
+              <option value="3.5">
+                3.5+
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      </form>
+
+
+      <!-- FILTER BUTTONS -->
+
+      <div class="filter-actions">
+
+        <button
+          type="button"
+          class="btn btn-primary btn-block"
+          id="apply-filters">
+          Apply Filters
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="reset-filters">
+          Reset
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- RIGHT: RECOMMENDATIONS -->
+
+    <section class="recommendations-panel">
+
+      <!-- FIXED / STICKY TOOLBAR -->
+
+      <div class="results-toolbar">
+
+        <span
+          class="results-count"
+          id="results-count">
+        </span>
+
+        <div
+          style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+
+          <button
+            type="button"
+            class="btn btn-secondary btn-sm filter-toggle-mobile"
+            id="filter-toggle-mobile">
+            Filters
+          </button>
+
+          <div class="sort-row">
+
+            <label for="sort-select">
+              Sort by
+            </label>
+
+            <select id="sort-select">
+
+              <option value="recommended">
+                Recommended
+              </option>
+
+              <option value="nearest">
+                Nearest
+              </option>
+
+              <option value="cost">
+                Lowest estimated cost
+              </option>
+
+              <option value="rating">
+                Highest rating
+              </option>
+
+              <option value="complete">
+                Most complete information
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ONLY THIS PART SCROLLS -->
+
+      <div
+        class="hospital-list"
+        id="hospital-list"
+        aria-live="polite">
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<!-- Comparison tray -->
+
+<div
+  class="compare-tray"
+  id="compare-tray">
+
+  <div class="compare-tray-inner">
+
+    <div
+      class="compare-tray-slots"
+      id="compare-tray-slots">
+    </div>
+
+    <div class="compare-tray-actions">
+
+      <button
+        type="button"
+        class="btn btn-ghost btn-sm"
+        id="compare-clear-btn"
+        style="color:#fff;">
+        Clear Comparison
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-teal btn-sm"
+        id="compare-open-btn">
+        Compare
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Comparison modal -->
+
+<div
+  class="modal-backdrop"
+  id="compare-modal-backdrop"
+  hidden>
+
+  <div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="compare-modal-title"
+    style="max-width:920px;">
+
+    <div class="modal-head">
+
+      <h3 id="compare-modal-title">
+        Hospital Comparison
+      </h3>
+
+      <button
+        class="modal-close"
+        id="compare-modal-close"
+        aria-label="Close comparison">
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          style="width:20px;height:20px;">
+
+          <path d="M5 5l14 14M19 5 5 19"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+    <p
+      style="font-size:0.85rem; margin-bottom:16px;">
+      Comparison indicators reflect the demo data only and are not medical judgments.
+    </p>
+
+    <div id="compare-modal-body"></div>
+
+  </div>
+
+</div>
+
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-bottom">
+
+      <span>
+        &copy;
+        <span id="year"></span>
+        Vitality. Hackathon demo project — not a medical service.
+      </span>
+
+      <span>
+        All hospital data is DEMO DATA.
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>

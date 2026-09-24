@@ -1,0 +1,245 @@
+[
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "All India Institute of Medical Sciences (AIIMS)",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": "110029",
+    "disease": "Cardiovascular Disease",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Fortis Memorial Research Institute",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "pincode": "122002",
+    "disease": "Acute Myeloid Leukemia",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Post Graduate Institute of Medical Education and Research (PGIMER)",
+    "city": "Chandigarh",
+    "state": "Chandigarh",
+    "pincode": "160012",
+    "disease": "Chronic Kidney Disease",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Narayana Health (Narayana Institute of Cardiac Sciences)",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "pincode": "560099",
+    "disease": "Pediatric Heart Surgery",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Sir Ganga Ram Hospital",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": "110060",
+    "disease": "Liver Cirrhosis (Transplant)",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Max Super Speciality Hospital",
+    "city": "Saket, New Delhi",
+    "state": "Delhi",
+    "pincode": "110017",
+    "disease": "Total Knee Replacement",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Artemis Hospital",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "pincode": "122003",
+    "disease": "Brain Tumor Resection",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "King George's Medical University (KGMU)",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "pincode": "226003",
+    "disease": "Tuberculosis (MDR-TB)",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Sanjay Gandhi Post Graduate Institute of Medical Sciences (SGPGIMS)",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "pincode": "226014",
+    "disease": "Hypothyroidism & Endocrine Tumors",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Aster CMI Hospital",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "pincode": "560092",
+    "disease": "Gastrointestinal Stromal Tumor (GIST)",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "BLK-Max Super Speciality Hospital",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": "110005",
+    "disease": "Bone Marrow Transplant",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Shalby Hospitals",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "pincode": "380015",
+    "disease": "Total Hip Replacement",
+    "year": 2025
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Narayana Institute of Cardiac Sciences",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "pincode": "560099",
+    "disease": "heart disease",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Institute of Kidney Diseases and Research Centre (IKDRC)",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "pincode": "380016",
+    "disease": "kidney",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "All India Institute of Medical Sciences (AIIMS)",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": "110029",
+    "disease": "cancer",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Fortis Escorts Heart Institute",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": "110025",
+    "disease": "heart disease",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Apollo Hospitals, Greams Road",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "pincode": "600006",
+    "disease": "heart disease",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Rajiv Gandhi Cancer Institute and Research Centre",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": "110085",
+    "disease": "cancer",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Post Graduate Institute of Medical Education and Research (PGIMER)",
+    "city": "Chandigarh",
+    "state": "Chandigarh",
+    "pincode": "160012",
+    "disease": "heart disease",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Sanjay Gandhi Postgraduate Institute of Medical Sciences (SGPGIMS)",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "pincode": "226014",
+    "disease": "kidney",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "HCG Cancer Centre",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "pincode": "560027",
+    "disease": "cancer",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Muljibhai Patel Urological Hospital (Nadiad Kidney)",
+    "city": "Nadiad",
+    "state": "Gujarat",
+    "pincode": "387001",
+    "disease": "kidney",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Kidwai Memorial Institute of Oncology",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "pincode": "560029",
+    "disease": "cancer",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Adyar Cancer Institute",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "pincode": "600020",
+    "disease": "cancer",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Max Super Speciality Hospital, Saket",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": "110017",
+    "disease": "heart disease",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "Chittaranjan National Cancer Institute (CNCI)",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "pincode": "700026",
+    "disease": "cancer",
+    "year": 2023
+  },
+  {
+    "reason": "Hospital not found in base dataset",
+    "hospitalName": "KIMS Hospitals (Krishna Institute of Medical Sciences)",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "pincode": "500003",
+    "disease": "kidney",
+    "year": 2023
+  }
+]
